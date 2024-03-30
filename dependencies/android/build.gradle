@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+
+android {
+	namespace 'org.haxe.extension.iap.InAppPurchase'
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs = ['src']
+		}
+	}
+	compileSdkVersion 34
+	buildToolsVersion "34.0.0"
+}
+
+dependencies {
+	api project(':extension-api')
+	def billing_version = "6.2.0"
+
+	implementation("com.android.billingclient:billing-ktx:$billing_version")
+}
